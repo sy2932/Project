@@ -1,0 +1,242 @@
+.jumbotron {
+  background-color: #333;
+  color: white;
+}
+
+.btn-primary {
+  background-color: #003087;
+  border-color: #003087;
+}
+
+.btn-primary:hover {
+  background-color: #002669;
+  border-color: #002669;
+}
+
+.search-icon {
+  font-size: 1.2em;
+}
+
+label {
+  font-weight: bold;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+.hero-section {
+  background-image: url("https://av.sc.com/corp-en/nr/content/images/HY-25-homepage-1753781127.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  padding-top: 150px;
+  padding-bottom: 200px;
+  position: relative;
+}
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 0;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: left;
+  margin-left: 10%;
+  margin-top: 100px;
+  max-width: 600px;
+}
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+ 
+}
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+.top-links {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #505050;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom-left-radius: 10px;
+  z-index: 1050;
+}
+.top-links a {
+  color: #fff;
+  margin-left: 10px;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.top-links a:hover {
+  color: #38d200;
+}
+.navbar {
+  background-color: #fff;
+  margin-left: 23px;
+  margin-right: 23px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding-top: 25px;
+  padding-bottom: 15px;
+}
+.navbar-brand img {
+  height: 62.5px;
+  margin-left: 55px;
+}
+.navbar-nav .nav-link {
+  color: #000 !important;
+  font-weight: 150;
+  margin-right: 7px;
+  margin-top: 20px;
+}
+.navbar-nav .nav-link:hover {
+  color: #0473e9 !important;
+}
+.custom-card {
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.custom-card:hover {
+  transform: translateY(-5px);
+}
+.custom-card img {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.custom-card-body {
+  padding: 20px;
+}
+.custom-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.custom-card-text {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+.custom-card a {
+  font-weight: bold;
+  color: #0473e9;
+  text-decoration: none;
+}
+.custom-card a:hover {
+  text-decoration: underline;
+}
+.footer {
+  background-color: #0a0a3f;
+  color: #fff;
+  padding: 60px 0 30px 0;
+  border-top: 4px solid #38d200;
+}
+.footer-logo {
+  margin-bottom: 30px;
+}
+.footer-logo img {
+  height: 70px;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-links li {
+  margin-bottom: 12px;
+}
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  line-height: 1.6;
+}
+.footer-links a:hover {
+  color: #38d200;
+}
+.social-icons a {
+  color: #ccc;
+  font-size: 1.5rem;
+  margin-left: 20px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+.social-icons a:hover {
+  color: #38d200;
+  transform: translateY(-2px);
+}
+.footer-bottom {
+  font-size: 0.9rem;
+  color: #999;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+}
+
+.navbar-nav .nav-item:last-child .dropdown-menu,
+.nav-item.dropdown:last-child .dropdown-menu {
+  right: 0 !important;
+  left: auto !important;
+  transform: translateX(-20px);
+}
+
+.nav-item.dropdown .dropdown-menu {
+  margin-top: 5px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  padding: 10px 0;
+  min-width: 200px;
+}
+
+.dropdown-item {
+  padding: 12px 20px;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.dropdown-item:hover {
+  background-color: transparent;
+  color: #003087;
+  transform: translateX(5px);
+}
+
+#dashboardsSection {
+  transition: all 0.3s ease-in-out;
+}
+
+#dashboardsChevron {
+  transition: transform 0.3s ease-in-out;
+}
+
+#dashboardsSection .dropdown-item {
+  padding-left: 2rem;
+}
+
+#dashboardsSection .dropdown-header {
+  color: #003087;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding-left: 1rem;
+}

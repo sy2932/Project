@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Customer Details - Standard Chartered</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="customer.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Standard_Chartered_(2021).svg"
+            alt="Logo"
+          />
+        </a>
+        <div class="top-links d-none d-lg-flex">
+          <a href="#">Online banking</a>
+          <a class="text-white">|</a>
+          <a href="#">Private banking online</a>
+          <a class="text-white">|</a>
+          <a href="#">Straight2Bank</a>
+          <a class="text-white">|</a>
+          <a href="#">Local sites</a>
+          <a class="text-white">|</a>
+          <a href="#">Contact us</a>
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarMain"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="bi bi-speedometer2"></i> Dashboards
+              </a>
+              <ul class="dropdown-menu" id="dashboardDropdown">
+                <li><h6 class="dropdown-header">Your Accounts</h6></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li id="noDashboards" class="d-none">
+                  <a class="dropdown-item text-muted" href="#">
+                    <i class="bi bi-info-circle"></i> No accounts created yet
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="bi bi-person-circle"></i>
+                <span id="userDisplayName">User</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    onclick="AuthUtils.logout()"
+                  >
+                    <i class="bi bi-box-arrow-right"></i> Logout
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Add Customer Details</h2>
+        <div class="text-muted">Welcome, <span id="welcomeUser"></span>!</div>
+      </div>
+
+      <div class="alert alert-info mb-4">
+        <i class="bi bi-info-circle me-2"></i>
+        Please fill in all required fields marked with
+        <span class="text-danger">*</span> to create your customer account.
+      </div>
+
+      <form id="customerForm" class="mb-5">
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5 class="mb-0">
+              <i class="bi bi-person-circle"></i> 1. Personal Details
+            </h5>
+          </div>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="fullName" class="form-label"
+                  >Full Name (as per ID proof)
+                  <span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="fullName"
+                  required
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="guardianName" class="form-label"
+                  >Father's / Mother's / Spouse's Name
+                  <span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="guardianName"
+                  required
+                />
+              </div>
+              <div class="col-md-3">
+                <label for="dateOfBirth" class="form-label"
+                  >Date of Birth <span class="text-danger">*</span></label
+                >
+                <input
+                  type="date"
+                  class="form-control"
+                  id="dateOfBirth"
+                  required
+                />
+              </div>
+              <div class="col-md-3">
+                <label for="gender" class="form-label"
+                  >Gender <span class="text-danger">*</span></label
+                >
+                <select class="form-select" id="gender" required>
+                  <option value="">Select Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <label for="maritalStatus" class="form-label"
+                  >Marital Status <span class="text-danger">*</span></label
+                >
+                <select class="form-select" id="maritalStatus" required>
+                  <option value="">Select Status</option>
+                  <option value="Single">Single</option>
+                  <option value="Married">Married</option>
+                  <option value="Divorced">Divorced</option>
+                  <option value="Widowed">Widowed</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <label for="nationality" class="form-label"
+                  >Nationality <span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nationality"
+                  value="Indian"
+                  required
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="occupation" class="form-label"
+                  >Occupation / Profession
+                  <span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="occupation"
+                  required
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="residentialStatus" class="form-label"
+                  >Residential Status <span class="text-danger">*</span></label
+                >
+                <select class="form-select" id="residentialStatus" required>
+                  <option value="">Select Status</option>
+                  <option value="Resident Indian">Resident Indian</option>
+                  <option value="NRI">NRI (Non-Resident Indian)</option>
+                  <option value="Foreign National">Foreign National</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5 class="mb-0">
+              <i class="bi bi-geo-alt-fill"></i> 2. Contact Details
+            </h5>
+          </div>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="permanentAddress" class="form-label"
+                  >Permanent Address <span class="text-danger">*</span></label
+                >
+                <textarea
+                  class="form-control"
+                  id="permanentAddress"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+              <div class="col-md-6">
+                <label for="correspondenceAddress" class="form-label"
+                  >Correspondence Address</label
+                >
+                <textarea
+                  class="form-control"
+                  id="correspondenceAddress"
+                  rows="3"
+                ></textarea>
+                <div class="form-check mt-2">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="sameAsPermananent"
+                  />
+                  <label class="form-check-label" for="sameAsPermananent">
+                    Same as permanent address
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="mobileNumber" class="form-label"
+                  >Mobile Number <span class="text-danger">*</span></label
+                >
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="mobileNumber"
+                  pattern="[0-9]{10}"
+                  required
+                />
+              </div>
+              <div class="col-md-4">
+                <label for="emailAddress" class="form-label"
+                  >Email Address <span class="text-danger">*</span></label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="emailAddress"
+                  required
+                />
+              </div>
+              <div class="col-md-4">
+                <label for="landline" class="form-label"
+                  >Landline (Optional)</label
+                >
+                <input type="tel" class="form-control" id="landline" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5 class="mb-0">
+              <i class="bi bi-shield-check"></i> 3. Identity & Address Proof
+              (KYC)
+            </h5>
+          </div>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="aadhaarNumber" class="form-label"
+                  >Aadhaar Card Number <span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="aadhaarNumber"
+                  pattern="[0-9]{12}"
+                  maxlength="12"
+                  required
+                />
+                <div class="form-text">12-digit Aadhaar number</div>
+              </div>
+              <div class="col-md-6">
+                <label for="panNumber" class="form-label"
+                  >PAN Card Number <span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="panNumber"
+                  pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"
+                  maxlength="10"
+                  style="text-transform: uppercase"
+                  required
+                />
+                <div class="form-text">
+                  10-character PAN number (e.g., ABCDE1234F)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5 class="mb-0">
+              <i class="bi bi-bank"></i> 4. Account Information
+            </h5>
+          </div>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="accountType" class="form-label"
+                  >Account Type <span class="text-danger">*</span></label
+                >
+                <select class="form-select" id="accountType" required>
+                  <option value="">Select Account Type</option>
+                  <option value="Savings">Savings Account</option>
+                  <option value="Current">Current Account</option>
+                  <option value="Fixed Deposit">Fixed Deposit</option>
+                  <option value="Recurring Deposit">Recurring Deposit</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="initialDeposit" class="form-label"
+                  >Initial Deposit Amount (₹)
+                  <span class="text-danger">*</span></label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="initialDeposit"
+                  min="1000"
+                  value="1000"
+                  required
+                />
+                <div class="form-text">Minimum ₹1,000 required</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary btn-lg px-5">
+            <i class="bi bi-person-plus"></i> Create Customer Account
+          </button>
+        </div>
+      </form>
+
+      <table class="table table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Account Type</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="customerTable"></tbody>
+      </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="auth-utils.js"></script>
+    <script src="customer.js"></script>
+  </body>
+</html>
