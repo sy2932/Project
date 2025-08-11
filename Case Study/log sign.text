@@ -1,0 +1,304 @@
+Login _ page 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RW Tool - Login</title>
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet">
+  <link 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+    rel="stylesheet">
+  <style>
+    body {
+      background-color: #dff1ff;
+      margin: 100px;
+    }
+    .left-container {
+      width: 420px; /* Increased width */
+      height: 400px; /* Decreased height */
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1rem;
+      margin: auto;
+    }
+    .form-control {
+      background-color: #e7f3ff;
+      border: none;
+      border-radius: 20px;
+      padding-left: 1rem;
+    }
+    .password-wrapper {
+      position: relative;
+    }
+    .password-wrapper .toggle-password {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #777;
+    }
+    .btn-login {
+      background-color: #3fa9f5;
+      color: white;
+      border-radius: 10px;
+      font-weight: bold;
+      padding: 0.5rem 1.5rem;
+    }
+    .captcha-input {
+      width: 70px;
+    }
+    .logo-container {
+      padding: 2rem;
+    }
+    .logo-img {
+      max-width: 200px;
+    }
+    .logo-text {
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    .inner-row {
+      max-width: 950px;
+      margin: auto;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid py-5">
+    <div class="row align-items-center inner-row">
+      
+      <!-- Left: Login Form -->
+      <div class="col-lg-5 mb-4 mt-5"><!-- mt-5 moves it down -->
+        <div class="left-container">
+          <h3 class="text-center fw-bold mb-4">Hello Again!</h3>
+          <form>
+            <!-- Email / Mobile -->
+            <div class="mb-3">
+              <label class="form-label small">Email / Mobile.No</label>
+              <input type="text" class="form-control">
+            </div>
+            <!-- Password -->
+            <div class="mb-3">
+              <label class="form-label small">Password</label>
+              <div class="password-wrapper">
+                <input type="password" class="form-control" id="password">
+                <i class="fa-regular fa-eye-slash toggle-password" id="togglePassword"></i>
+              </div>
+              <div class="text-end">
+                <small><a href="#">Forget Password?</a></small>
+              </div>
+            </div>
+            <!-- Captcha -->
+            <div class="mb-3">
+              <label class="form-label small">Captcha</label>
+              <div class="d-flex gap-2">
+                <input type="text" class="form-control">
+                <div class="d-flex align-items-center gap-1">
+                  <button type="button" class="btn btn-light border rounded-circle p-2">
+                    <i class="fa-solid fa-rotate"></i>
+                  </button>
+                  <input type="text" class="form-control captcha-input">
+                </div>
+              </div>
+            </div>
+            <!-- Save Info -->
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="saveLogin">
+              <label class="form-check-label small" for="saveLogin">
+                Save Login Info.
+              </label>
+            </div>
+            <!-- Submit Button -->
+            <div class="d-grid mb-3">
+              <button type="submit" class="btn btn-login">Login</button>
+            </div>
+            <!-- Links -->
+            <div class="d-flex justify-content-between">
+              <small>Don't have an account? <a href="#">Sign up</a></small>
+              <small><a href="#">Terms &amp; Conditions</a></small>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <!-- Right: Logo -->
+      <div class="col-lg-7 logo-container text-center">
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Standard_Chartered_Logo_%282021%2C_Logo_only%29.svg" 
+          alt="RW Tool Logo" 
+          class="logo-img mb-3">
+        <div class="logo-text">
+          <span style="color: blue;">RW</span> 
+          <span style="color: green;">Tool</span>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script>
+    // Toggle password visibility
+    const togglePassword = document.querySelector("#togglePassword");
+    const password = document.querySelector("#password");
+
+    togglePassword.addEventListener("click", function () {
+      const type = password.getAttribute("type") === "password" ? "text" : "password";
+      password.setAttribute("type", type);
+      this.classList.toggle("fa-eye");
+      this.classList.toggle("fa-eye-slash");
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+Sign_up page
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RW Tool - Signup</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #d9efff;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-section {
+      text-align: center;
+    }
+    .logo-section img {
+      width: 200px;
+    }
+    .logo-text {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .logo-text span:first-child {
+      color: #007bff;
+    }
+    .logo-text span:last-child {
+      color: #28a745;
+    }
+    .form-container {
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      width: 380px;
+    }
+    .form-control {
+      background-color: #d9efff;
+      border-radius: 50px;
+      padding-left: 15px;
+      height: 38px;
+    }
+    .signup-btn {
+      background-color: #007bff;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 6px 30px;
+      border-radius: 10px;
+      border: none;
+    }
+    .form-check-label a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .captcha-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .captcha-refresh {
+      background-color: white;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      padding: 5px 10px;
+    }
+    .form-label {
+      margin-bottom: 3px;
+    }
+    .mb-3 {
+      margin-bottom: 12px !important;
+    }
+  </style>
+</head>
+<body>
+
+<div class="d-flex align-items-center justify-content-center" style="gap:150px;">
+  
+  <!-- Logo Section -->
+  <div class="logo-section">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Standard_Chartered_Logo_%282021%2C_Logo_only%29.svg" alt="RW Tool Logo">
+    <div class="logo-text mt-2">
+      <span>RW</span> <span>Tool</span>
+    </div>
+  </div>
+
+  <!-- Signup Form -->
+  <div class="form-container">
+    <h4 class="text-center mb-3"><b>Join Now!</b></h4>
+    <form>
+      <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email / Mobile.No</label>
+        <input type="email" class="form-control">
+      </div>
+      <div class="mb-3 position-relative">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control pe-5">
+        <i class="fa-solid fa-eye-slash position-absolute" style="right:15px; top:34px; color:gray;"></i>
+      </div>
+      <div class="mb-3 position-relative">
+        <label class="form-label">Re-Enter Password</label>
+        <input type="password" class="form-control pe-5">
+        <i class="fa-solid fa-eye-slash position-absolute" style="right:15px; top:34px; color:gray;"></i>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Captcha</label>
+        <div class="captcha-container">
+          <input type="text" class="form-control" style="flex:1;">
+          <button type="button" class="captcha-refresh"><i class="fa-solid fa-rotate"></i></button>
+        </div>
+      </div>
+      <div class="mb-2 form-check">
+        <input type="checkbox" class="form-check-input">
+        <label class="form-check-label">Accept, <a href="#">Terms & Conditions</a></label>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="signup-btn">Signup</button>
+      </div>
+    </form>
+    <div class="d-flex justify-content-between mt-2">
+      <small>Have an account? <a href="#">Login</a></small>
+      <small><a href="#">Terms & Conditions</a></small>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
