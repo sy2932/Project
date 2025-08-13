@@ -1,0 +1,90 @@
+import React from "react";
+import {Form, Button, Dropdown, Navbar, Container, FormControl, Table} from "react-bootstrap";
+import {FaUserPlus, FaTrash, FaSearch, FaBell, FaUser, FaCheckSquare, FaSquare} from "react-icons/fa";
+ 
+const emp = [
+    { Eid: 1, name: "Alice", group: "hbdiyqwd" },
+    { Eid: 2, name: "Alice", group: "sbhqwvdy" },
+    { Eid: 3, name: "Alice", group: "xbqhwbdq" },
+    { Eid: 4, name: "Alice", group: "qhbdxuqVW" },
+    { Eid: 5,name:"Aysuh", group:96},
+    { Eid: 6,name:"Aysuh", group:96},
+    { Eid: 5,name:"Aysuh", group:96}
+  ];
+ 
+function Dashboard(){
+    return(
+        <div style={{display: 'flex', flexDirection:'column', height:'100vh'}}>
+            <Navbar className="shadow-sm" style={{backgroundColor:"skyblue"}}>
+                <Container className="d-flex justify-content-between" style={{backgroundColor:'white', borderRadius:'5px'}}>
+                    <Navbar.Brand href="#">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Standard_Chartered_(2021).svg" alt="logo" height={40} className="me-3"></img>
+                    </Navbar.Brand>
+                    <div className="d-flex align-item-center" style={{display:'flex', gap:'20px'}}>
+                    <FaBell size={30} className="mb-3 mt-3"/>
+                    <FaUser size={30} className="mb-3 mt-3"/>
+                    </div>
+                </Container>
+            </Navbar>
+           
+            <div style={{display:'flex', flex:1}}>
+                {/* sidebar */}
+                <div style={{width:'60px', backgroundColor:'lightgrey', marginTop:'5px',marginLeft:'2px', display:'flex',flexDirection:'column', alignItems:'center', borderRadius:'5px'}}>
+                    <FaUserPlus size={50} className="mb-5 pt-4"/>
+                    <FaSquare size={50} className="mb-5 pt-4"/>
+                </div>
+                <div style={{flex:1, padding:'15px'}}>
+                    <div style={{display:'flex', alignItems:'center', gap:'10px'}}>
+                        <Form className="d-flex" style={{maxWidth :'300px'}}>
+                            <FormControl type="search" placeholder="search"/>
+                            <Button variant="outline-secondary">
+                                <FaSearch/>
+                            </Button>
+                        </Form>
+                       
+                        <div>
+                        <Dropdown className="me-3" style={{display:'flex', marginLeft:'690px'}}>
+                            <Dropdown.Toggle variant="outline-primary">Groups</Dropdown.Toggle>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item>Group 1</Dropdown.Item>
+                                    <Dropdown.Item>Group 2</Dropdown.Item>
+                                </Dropdown.Menu>
+                        </Dropdown>
+                        </div>
+                        <Button variant="outline-secondary"> <FaTrash/></Button>
+                    </div>
+                    <Table bordered hover style={{marginTop:'5px'}}>
+                        <thead>
+                            <tr>
+                                <th style={{width:'3%'}}><FaCheckSquare/></th>
+                                <th style={{width:'15%'}}>Employee Id</th>
+                                <th style={{width:'20%'}}>Name</th>
+                                <th style={{width:'15%'}}>Group</th>
+                                <th style={{width:'5%'}}>Profile</th>
+                                <th style={{width:'10%'}}>Permission</th>
+                                <th style={{width:'5%'}}>File</th>
+                                <th style={{width:'5%'}}>Remove User</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {emp.map((i)=>(
+                                <tr key={i.Eid}>
+                                    <td></td>
+                                    <td>{i.Eid}</td>
+                                    <td>{i.name}</td>
+                                    <td>{i.group}</td>
+                                    <td><FaSearch/></td>
+                                    <td><FaSearch/></td>
+                                    <td><FaSearch/></td>
+                                    <td><FaSearch/></td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </Table>
+                </div>
+            </div>
+        </div>
+    )
+};
+export default Dashboard;
+ 
