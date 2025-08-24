@@ -1,0 +1,651 @@
+/* Admin Profile reuses EmployeeProfile styling for exact visual parity */
+@import url("./EmployeeProfile.css");
+
+/* Alias container class to employee-profile-container */
+/* (CSS Modules 'composes' not supported here; relying on duplicate fallback styles below) */
+
+/* Fallback: duplicate essential base container styles (mirroring EmployeeProfile.css) */
+.admin-profile-container {
+  min-height: 100vh;
+  background: #ddf1ff;
+  /* Explicit 42px (32px original 2rem + 10px) so the increase is unambiguous */
+  padding: 42px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+}
+
+/* Close button: replicate Login page styling */
+.admin-profile-container .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  font-weight: 600;
+  color: #1976d2; /* standardized blue */
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+  transition: none !important; /* prevent hover animation */
+}
+/* Suppress any imported hover effects */
+.admin-profile-container .close-btn:hover {
+  background: #ffffff !important;
+  color: #1976d2 !important; /* standardized blue */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08) !important;
+  transform: none !important;
+}
+@media (min-width: 768px) {
+  .admin-profile-container .close-btn {
+    top: 32px;
+    right: 40px;
+    width: 48px;
+    height: 48px;
+    font-size: 26px;
+  }
+}
+@media (max-width: 480px) {
+  .admin-profile-container .close-btn {
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+}
+
+/* Remove any card/panel shadows that might come from shared/employed styles */
+.admin-profile-container .profile-card,
+.admin-profile-container .info-panel,
+.admin-profile-container .security-panel,
+.admin-profile-container .details-box {
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+/* Disable avatar edit hover overlay fade-in transitions if present */
+.admin-profile-container .avatar-edit-overlay {
+  transition: none !important;
+}
+.admin-profile-container .avatar-edit-container:hover .avatar-edit-overlay {
+  opacity: 1;
+}
+
+/* Global removal of hover motion/effects within admin profile */
+.admin-profile-container * {
+  transition: none !important;
+  animation: none !important;
+}
+.admin-profile-container *:hover {
+  box-shadow: none !important;
+  transform: none !important;
+  filter: none !important;
+  background-image: none !important;
+}
+.admin-profile-container button:hover,
+.admin-profile-container .btn:hover {
+  background-color: inherit !important;
+  color: inherit !important;
+}
+/* Keep primary/secondary buttons fixed to their base colors when hovered */
+.admin-profile-container .btn-primary,
+.admin-profile-container .btn-primary:hover,
+.admin-profile-container .btn-primary:focus {
+  background: #1976d2 !important;
+  color: #fff !important;
+}
+.admin-profile-container .btn-secondary,
+.admin-profile-container .btn-secondary:hover,
+.admin-profile-container .btn-secondary:focus {
+  background: #35d300 !important;
+  color: #fff !important;
+}
+
+/* Neutralize hover highlight on list/profile items */
+.admin-profile-container .profile-item,
+.admin-profile-container .profile-item:hover,
+.admin-profile-container .profile-item:focus {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+/* Prevent any accidental link hovers inside admin profile */
+.admin-profile-container a:hover {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.avatar-edit-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.avatar-edit-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.avatar-edit-container:hover .avatar-edit-overlay {
+  opacity: 1;
+}
+
+.avatar-edit-label {
+  cursor: pointer;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.avatar-edit-label:hover {
+  transform: scale(1.1);
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+.scb-logo {
+  height: 1.5rem;
+  width: auto;
+  object-fit: contain;
+  margin-left: 0.2rem;
+}
+
+.profile-details {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.details-box {
+  background: #e8f5e8;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.details-box h3 {
+  color: #333;
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.detail-item {
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.detail-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Profile Actions */
+/* Force vertical stacking of action buttons for Admin profile */
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+/* Increase specificity to override any imported .profile-card .profile-actions row layout */
+.profile-card .profile-actions {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+.profile-card .profile-actions .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    #1976d2 0%,
+    #1976d2 100%
+  ); /* flat standardized blue */
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #1976d2; /* no hover color shift */
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background: linear-gradient(
+    135deg,
+    #35d300 0%,
+    #35d300 100%
+  ); /* standardized green */
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #35d300;
+  transform: none;
+  box-shadow: none;
+}
+
+.password-submit-btn {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.contact-save-btn {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+/* Right Section */
+.right-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Info Panels */
+.info-panel {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Allow security panel dropdown to overflow for overlay behavior */
+.info-panel.security-panel {
+  overflow: visible;
+}
+
+.panel-header {
+  padding: 1rem 1.5rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.blue-header {
+  background: #1976d2; /* standardized blue */
+}
+
+.blue-header:hover {
+  background: #1976d2; /* no change */
+}
+
+.green-header {
+  background: #35d300; /* standardized green */
+}
+
+.green-header:hover {
+  background: #35d300; /* no change */
+}
+
+.panel-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.dropdown-arrow {
+  font-size: 0.8rem;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* Contact panel always visible */
+.contact-panel .panel-content {
+  position: static;
+  padding: 2rem;
+  max-height: none;
+  opacity: 1;
+  background: #f8fafb;
+  border: none;
+}
+
+/* Security panel (dropdown) */
+/* Security panel overlay behavior (overlaps images like employee profile) */
+.security-panel {
+  position: relative;
+}
+.security-panel-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  background: #f8fafb;
+  border: 2px solid #35d300;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  z-index: 15; /* sit above images */
+}
+.security-panel-content.open {
+  padding: 2rem;
+  max-height: 600px; /* enough for form */
+  opacity: 1;
+}
+/* Ensure images sit below overlay */
+.images-section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Contact Details */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem; /* reduced from 1.5rem */
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem; /* tighter label/value spacing */
+}
+
+.contact-item label {
+  color: #333;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.contact-value {
+  color: #333;
+  font-size: 0.9rem;
+  padding: 0.75rem;
+  background: #f5f5f5;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  min-height: 20px;
+}
+
+.contact-input {
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: white;
+  transition: border-color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-input:focus {
+  outline: none;
+  border-color: #2196f3;
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+}
+
+.contact-actions {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Security Controls */
+.password-section h4 {
+  color: #333;
+  margin: 0 0 0.75rem 0; /* slightly more */
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.password-fields {
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem; /* little more again */
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.password-fields .field-group {
+  flex: 1 1 30%;
+  min-width: 160px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.42rem; /* little more again */
+}
+
+.field-group label {
+  color: #333;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.field-group input {
+  padding: 0.55rem 0.65rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  background: white;
+  transition: border-color 0.2s ease;
+}
+
+.field-group input:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.15);
+}
+
+/* Images Section */
+.images-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.image-item {
+  text-align: center;
+  flex: 1;
+}
+
+.image-placeholder {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.png-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  z-index: 2;
+  position: relative;
+}
+
+.image-label {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #333;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.image-placeholder:hover {
+  transform: scale(1.05);
+}
+
+.image-placeholder::before {
+  content: "IMG";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+@media (max-width: 1024px) {
+  .profile-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-card {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .right-section {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .employee-profile-container {
+    padding: 1rem;
+  }
+
+  .profile-layout {
+    gap: 1.5rem;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .contact-info {
+    gap: 1rem;
+  }
+
+  .images-section {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .image-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .image-placeholder {
+    margin: 0;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-card {
+    padding: 1rem;
+  }
+
+  .panel-content {
+    padding: 1rem;
+  }
+
+  .profile-name {
+    font-size: 1.25rem;
+  }
+
+  .avatar-icon {
+    font-size: 1.5rem;
+  }
+
+  .image-placeholder {
+    width: 60px;
+    height: 60px;
+  }
+
+  .svg-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+* {
+  transition: all 0.3s ease;
+}
+
+.info-panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.profile-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}

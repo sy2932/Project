@@ -1,0 +1,1836 @@
+/* Verbatim copy of EmployeeDashboard.css for AdminDashboard styling parity */
+.dashboard-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #c2defa;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar {
+  background-color: white;
+  border-bottom: 1px solid #dee2e6;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 0 5px 5px 5px;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  padding: 0.5 rem 1rem;
+  padding-left: 10px;
+  width: 98%;
+  /* margin: 0 auto; */
+}
+.img {
+  padding-left: 15px;
+}
+.navbar-icons > * {
+  margin-left: 1rem;
+  color: #0d6efd;
+  cursor: pointer;
+  padding-right: 3px;
+}
+
+.main-content {
+  display: flex;
+  height: auto;
+}
+
+.sidebar {
+  width: 100px;
+  background: none;
+  border-radius: 12px;
+  border: 2px solid #1976d2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 1rem;
+  gap: 1.5rem;
+  color: #1976d2;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-left: -2px;
+  margin-bottom: 8px;
+}
+
+.content-area {
+  width: 500px;
+  flex-grow: 1;
+  padding: 1rem;
+  background-color: white;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+  box-shadow: 0 1px 8px rgb(0 0 0 / 0.1);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+.search-filter-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.search {
+  width: 300px; /* Adjust width as needed */
+
+  border: 2px solid black;
+  border-radius: 18px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px; /* 🔁 changed from left to right */
+  transform: translateY(-50%);
+  color: gray;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  height: 40px;
+  padding-right: 35px; /* 🔁 added padding-right instead of padding-left */
+
+  border: 1px solid #ccc;
+}
+
+.group-dropdown .btn {
+  /* border-radius: 0;
+    background-color: white;
+    color: #0d6efd;
+    border: 1px solid #0d6efd; */
+  border: 1px solid #495057;
+  font-weight: 600;
+}
+
+.group-dropdown .btn:hover,
+.group-dropdown .btn:focus {
+  background-color: #e1eaff;
+  color: #0d6efd;
+}
+
+/* Initial base table style will be simplified later by normalization block */
+.employee-table {
+  background-color: #fff;
+  border-collapse: separate !important;
+  border-spacing: 0;
+  width: 100%;
+  min-width: 850px;
+}
+
+.employee-table thead tr th {
+  background-color: transparent;
+  color: #495057;
+  font-weight: 700;
+  border-bottom: none;
+  padding: 12px 15px;
+  vertical-align: middle;
+  user-select: none;
+}
+
+/* Row hover handled later */
+
+.employee-table tbody tr td {
+  padding: 12px 15px;
+  vertical-align: middle;
+  border: none;
+  color: #212529;
+  font-size: 14px;
+  text-align: center;
+}
+
+.employee-table tbody tr td:first-child {
+  padding-left: 20px;
+  width: 50px;
+}
+
+.employee-table tbody tr td:nth-child(2),
+.employee-table tbody tr td:nth-child(3),
+.employee-table tbody tr td:nth-child(4) {
+  font-weight: 600;
+}
+
+/* Common style for all icons in table cells */
+.employee-table tbody tr td svg {
+  vertical-align: middle;
+  margin: 0 5px;
+  color: #0d6efd; /* default icon blue */
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.employee-table tbody tr td svg:hover {
+  color: #0047b3;
+}
+
+/* Remove User icon red color and hover */
+.remove-user-icon {
+  color: #e00; /* bright red */
+  margin-left: 0; /* override margin */
+}
+
+.remove-user-icon:hover {
+  color: #a00;
+}
+
+/* For checkboxes column */
+.employee-table thead {
+  text-align: center;
+}
+.employee-table thead th:first-child,
+.employee-table tbody td:first-child {
+  width: 50px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.employee-table thead th:first-child svg,
+.employee-table tbody td:first-child svg {
+  font-size: 18px;
+  color: #6c757d;
+  cursor: pointer;
+}
+
+.employee-table thead th:first-child svg:hover,
+.employee-table tbody td:first-child svg:hover {
+  color: #0d6efd;
+}
+
+/* Search input styling */
+.form-control[type="search"] {
+  border-radius: 20px;
+  border: 1px solid #ced4da;
+  padding-left: 1rem;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.form-control[type="search"]:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 6px #a7c7ff;
+  outline: none;
+}
+
+/* Buttons styling */
+.btn-outline-secondary {
+  border-radius: 6px;
+  color: #495057;
+  border-color: #ced4da;
+  font-size: 16px;
+  padding: 6px 10px;
+}
+
+.for_access {
+  border: 2px solid #c2defa;
+  border-radius: 6px;
+  padding: 2px;
+}
+
+/* Style for the container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* The main button */
+.for_access {
+  padding: 10px 15px;
+
+  color: black;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Hidden dropdown by default */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  min-width: 160px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+/* Items inside the dropdown */
+.dropdown-item {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Optional: Highlight on hover */
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.for_access {
+  padding: 10px 15px;
+  color: black;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none; /* Hidden by default */
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  min-width: 160px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.dropdown-item {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+FaUserMinus {
+  color: red;
+}
+
+.sidebar-menu {
+  list-style: none;
+}
+
+.filter-btn,
+.dropdown-toggle.filter-btn {
+  height: 35px;
+  padding: 5px 15px;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-left: 8px;
+  cursor: pointer;
+  min-width: 100px;
+  text-align: center;
+}
+
+.filter-btn:hover,
+.dropdown-toggle.filter-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.filter-btn {
+  background-color: #f8f9fa !important; /* light background */
+  color: #333 !important; /* dark text */
+  border: 1px solid #ccc !important; /* subtle border */
+  border-radius: 6px !important; /* smooth corners */
+  padding: 6px 14px !important;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* light shadow */
+}
+
+.filter-btn:hover,
+.filter-btn:focus {
+  background-color: #e9ecef !important; /* hover effect */
+  color: #000 !important;
+  border-color: #bbb !important;
+}
+
+.dropdown-menu {
+  padding: 8px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Each item inside dropdown */
+.dropdown-item {
+  display: block;
+  padding: 10px 14px !important;
+  margin: 4px 0 !important;
+  border-radius: 6px !important;
+  background-color: #f8f9fa !important;
+  color: #333 !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover effect */
+.dropdown-item:hover {
+  background-color: #0d6efd !important; /* Bootstrap blue */
+  color: #fff !important;
+}
+
+/* Navbar Styling */
+.navbar {
+  background: linear-gradient(90deg, #0d6efd, #4facfe);
+  padding: 10px 20px;
+}
+
+.navbar .navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-icons svg {
+  margin-left: 20px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.navbar-icons svg:hover {
+  transform: scale(1.2);
+  color: #ffd700;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  background: linear-gradient(180deg, #1a237e, #3949ab);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+  min-height: 100vh;
+  border-right: 2px solid #0d6efd;
+}
+
+.icon-wrapper {
+  background: #e3f2fd;
+  padding: 12px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.icon-wrapper:hover {
+  background: #0d6efd;
+  transform: scale(1.15);
+}
+
+.icon-wrapper svg {
+  color: #0d6efd;
+  transition: color 0.3s ease;
+}
+
+.icon-wrapper:hover svg {
+  color: #fff;
+}
+
+/* Navbar Styling */
+.navbar {
+  background: linear-gradient(90deg, #1a237e, #3949ab); /* match sidebar */
+  padding: 10px 20px;
+}
+
+.navbar-brand {
+  color: white !important;
+  font-weight: bold;
+}
+
+/* Icons in header */
+.navbar-icons svg {
+  margin-left: 20px;
+  color: #ffffff !important; /* always white */
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.navbar-icons svg:hover {
+  transform: scale(1.2);
+  color: #ffd700 !important; /* gold on hover */
+}
+
+.header-icons svg {
+  margin-right: 20px !important;
+}
+
+.header-icons svg last-child {
+  margin-right: 0 !important;
+}
+
+/* Sidebar final overrides - match navbar style and add hover expand */
+.sidebar {
+  background: linear-gradient(180deg, #1a237e, #3949ab);
+  border-right: 2px solid #0d6efd;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  min-height: 100vh;
+  width: 76px; /* collapsed */
+  transition: width 200ms ease;
+}
+
+.sidebar.expanded {
+  width: 220px; /* expanded */
+}
+
+.icon-wrapper {
+  background: transparent;
+  padding: 8px 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  transition: background-color 150ms ease;
+}
+
+.icon-wrapper:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: none; /* cancel any previous scale */
+}
+
+.icon-wrapper svg {
+  color: #ffffff;
+}
+
+/* Active state for sidebar icons */
+/* Sidebar icon colors: inactive black, active blue */
+/* Base collapsed sidebar styles already present earlier; override for admin hover expand */
+.sidebar {
+  width: 76px;
+  transition: width 180ms ease;
+}
+.sidebar.expanded {
+  width: 220px;
+}
+
+/* Use sidebar-item for interactive rows */
+.sidebar-item {
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+.sidebar-item svg {
+  color: currentColor;
+  flex-shrink: 0;
+}
+.sidebar-item:hover {
+  background: rgba(13, 110, 253, 0.08);
+}
+.sidebar-item.active {
+  color: #0d6efd;
+}
+.sidebar-label {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.sidebar-label {
+  margin-left: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+/* Sidebar background switched to white with appropriate icon and label colors */
+.sidebar {
+  background: #ffffff;
+}
+
+.icon-wrapper:hover {
+  background: rgba(13, 110, 253, 0.08);
+}
+
+.icon-wrapper svg {
+  color: #0d6efd;
+}
+
+.sidebar-label {
+  color: #0d6efd;
+}
+
+/* Sidebar icon/text color rules: black default, blue when active */
+.sidebar-item {
+  color: #000000;
+}
+.sidebar-item svg {
+  color: #000000;
+}
+.sidebar-item .sidebar-label {
+  color: #000000;
+}
+.sidebar-item.active,
+.sidebar-item.active svg,
+.sidebar-item.active .sidebar-label {
+  color: #0d6efd;
+}
+
+/* Center sidebar items and increase icon sizes */
+.sidebar-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center icon + label as a group */
+  gap: 12px;
+}
+
+/* Icon sizes: bigger when collapsed, smaller when expanded */
+.sidebar-item svg {
+  width: 32px;
+  height: 32px;
+}
+.sidebar.expanded .sidebar-item svg {
+  width: 26px;
+  height: 26px;
+}
+
+/* Ensure label participates in centering */
+.sidebar-item .sidebar-label {
+  text-align: center;
+}
+
+/* Left-align items when sidebar is expanded */
+.sidebar.expanded .sidebar-item {
+  justify-content: flex-start;
+}
+.sidebar.expanded .sidebar-item .sidebar-label {
+  text-align: left;
+}
+
+/* Keep non-active sidebar items black on hover; keep active items blue */
+.sidebar-item:hover,
+.sidebar-item:hover svg,
+.sidebar-item:hover .sidebar-label {
+  color: #000000 !important;
+}
+.sidebar-item.active:hover,
+.sidebar-item.active:hover svg,
+.sidebar-item.active:hover .sidebar-label {
+  color: #0d6efd !important;
+}
+
+/* Layout: make header + main content fill viewport, with internal scroll in content */
+.main-bg {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1 1 auto; /* take remaining height under header */
+  display: flex; /* preserve sidebar + content layout */
+  overflow: hidden; /* prevent page scrollbars; delegate to content-area */
+}
+
+.sidebar {
+  height: 100%; /* match main-content height */
+}
+
+.content-area {
+  height: 100%;
+  overflow: auto; /* internal scrolling */
+}
+
+/* Reduce sidebar height so it doesn't fill the entire screen */
+.sidebar {
+  min-height: unset;
+  height: 75vh; /* reduced height */
+}
+
+/* Reduce vertical gap below header for sidebar and content */
+.sidebar {
+  margin-top: 2px !important;
+}
+.content-area {
+  margin-top: 2px !important;
+}
+
+/* Tighten gap below header even more */
+.sidebar {
+  margin-top: 0 !important;
+}
+.content-area {
+  margin-top: 0 !important;
+}
+
+/* Minimize gap below header */
+.header {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+.main-content {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Set a consistent 10px gap below the header */
+.main-content {
+  margin-top: 10px !important;
+}
+
+/* Adjust gap below the header to 15px */
+.main-content {
+  margin-top: 15px !important;
+}
+
+/* Ensure sidebar border remains visible and not covered */
+.sidebar {
+  margin-left: 0 !important; /* avoid clipping into container edge */
+  position: relative; /* enable z-index */
+  z-index: 2; /* place above adjacent containers */
+  border: 2px solid #0d6efd !important; /* enforce border visibility */
+  border-radius: 14px !important; /* keep rounded corners prominent */
+}
+
+/* Place content below sidebar in stacking order */
+.main-content,
+.content-area {
+  position: relative;
+  z-index: 1;
+}
+
+/* Slightly increase sidebar height */
+.sidebar {
+  height: 82vh !important;
+}
+
+/* Increase sidebar height by an additional 5px */
+.sidebar {
+  height: calc(82vh + 5px) !important;
+}
+
+/* Increase sidebar height by an additional 5px (total +10px) */
+.sidebar {
+  height: calc(82vh + 10px) !important;
+}
+
+/* Increase sidebar height by an additional 3px */
+.sidebar {
+  height: calc(82vh + 13px) !important;
+}
+
+/* Match main content border and height to sidebar */
+.content-area {
+  border: 2px solid #0d6efd !important;
+  border-radius: 14px !important;
+  height: calc(82vh + 13px) !important; /* same as sidebar */
+  background: #ffffff;
+  overflow: auto; /* keep internal scroll */
+}
+
+/* Hide main content vertical scrollbar while allowing internal sections to manage scroll */
+.content-area {
+  overflow-y: hidden !important;
+}
+
+/* Sticky search/filter bar with divider below */
+.search-filter-container {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: #ffffff;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Scroll wrapper for table */
+.table-scroll {
+  overflow: auto;
+  overflow-x: auto;
+  height: calc(100% - 54px); /* leave space for sticky search bar */
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+/* Sticky and highlighted table header */
+.employee-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #e9f1ff !important; /* light highlight */
+  border-bottom: 2px solid #0d6efd !important;
+}
+
+/* Clean, professional table styles with stable sticky header */
+.table-scroll {
+  overflow: auto;
+  height: calc(100% - 54px);
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable both-edges; /* reduce header shift on some browsers */
+}
+
+.employee-table {
+  width: 100% !important;
+  table-layout: fixed !important; /* stable column widths */
+  border-collapse: separate !important;
+  border-spacing: 0 !important; /* avoid sticky header jitter */
+  background: #ffffff !important;
+}
+
+.employee-table thead th,
+.employee-table tbody td {
+  padding: 12px 16px !important;
+}
+
+.employee-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: #f7fbff !important;
+  color: #1f3b69 !important;
+  font-weight: 700 !important;
+  border-bottom: 2px solid #cfe2ff !important;
+  box-shadow: 0 1px 0 rgba(13, 110, 253, 0.15);
+  will-change: transform; /* smoother sticky behavior */
+  backface-visibility: hidden; /* reduce flicker */
+}
+
+.employee-table tbody tr {
+  transition: background-color 150ms ease;
+}
+
+.employee-table tbody tr:hover {
+  background-color: #f6f9ff !important;
+}
+
+.employee-table tbody td {
+  border-bottom: 1px solid #eef2f7 !important;
+  color: #212529 !important;
+}
+
+/* First column (checkbox) narrower and centered */
+.employee-table thead th:first-child,
+.employee-table tbody td:first-child {
+  width: 48px !important;
+  text-align: center !important;
+}
+
+/* Neat table borders: subtle outer border and clean inner grid lines */
+.table-scroll {
+  border: 1px solid #d9e2ef; /* outer border */
+  border-radius: 10px; /* rounded corners */
+  background: #ffffff;
+}
+
+.employee-table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+/* Vertical grid lines */
+.employee-table thead th,
+.employee-table tbody td {
+  border-right: 1px solid #e6edf5 !important;
+}
+.employee-table thead th:last-child,
+.employee-table tbody td:last-child {
+  border-right: none !important;
+}
+
+/* Horizontal grid lines */
+.employee-table tbody td {
+  border-bottom: 1px solid #e9edf3 !important;
+}
+.employee-table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* Stronger header bottom rule to separate header from rows */
+.employee-table thead th {
+  border-bottom: 2px solid #cfe2ff !important;
+}
+
+/* Edge-to-edge table inside main content, no borders */
+.content-area {
+  padding: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  background: #ffffff;
+}
+.search-filter-container {
+  padding: 12px 16px !important; /* keep spacing for controls */
+}
+.table-scroll {
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+.employee-table {
+  width: 100% !important; /* span full width */
+}
+
+/* Keep a 15px horizontal gap between sidebar and main content */
+.content-area {
+  margin-left: 15px !important;
+}
+
+/* Remove inner left gap so table sits flush with container */
+.employee-table {
+  margin: 0 !important;
+}
+.employee-table thead th:first-child,
+.employee-table tbody td:first-child {
+  padding-left: 0 !important; /* no left indent on first column */
+}
+
+/* Remove left-side scrollbar gutter space in table area */
+.table-scroll {
+  scrollbar-gutter: auto !important; /* was stable both-edges; remove left gutter */
+}
+
+/* Ensure zero left offset for the table grid */
+.table-scroll,
+.employee-table {
+  border-left: 0 !important;
+}
+.employee-table thead th:first-child,
+.employee-table tbody td:first-child {
+  margin-left: 0 !important;
+}
+
+/* Remove first column separator line and center its checkboxes */
+.employee-table thead th:first-child,
+.employee-table tbody td:first-child {
+  border-right: none !important; /* remove first column separator */
+  border-left: none !important; /* ensure no left edge line */
+  text-align: center !important; /* center content in column */
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.employee-table thead th:first-child input[type="checkbox"],
+.employee-table tbody td:first-child input[type="checkbox"] {
+  display: block;
+  margin: 0 auto; /* center checkbox horizontally */
+}
+
+/* Blue borders for search and filters */
+.search-filter-container input[type="text"],
+.dropdown-toggle.filter-btn,
+.filter-btn {
+  border: 1px solid #0d6efd !important;
+}
+
+/* Keep blue on hover/focus */
+.dropdown-toggle.filter-btn:hover,
+.dropdown-toggle.filter-btn:focus,
+.filter-btn:hover,
+.filter-btn:focus {
+  border-color: #0b5ed7 !important; /* darker blue on interaction */
+  box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.15) !important;
+}
+
+/* ID column styles */
+.employee-table thead th:nth-child(2),
+.employee-table tbody td:nth-child(2) {
+  width: 72px !important;
+  text-align: center !important;
+}
+
+/* Blue borders for native select and date inputs */
+.filters-right select.filter-btn,
+.filters-right input[type="date"].filter-btn {
+  border: 1px solid #0d6efd !important;
+  background: #fff;
+}
+
+/* Keep filter controls within sticky bar stacking context */
+.search-filter-container .filter-btn,
+.search-filter-container select,
+.search-filter-container input[type="date"] {
+  position: relative;
+  z-index: 4;
+}
+
+/* Date range popover styles */
+.daterange-toggle {
+  position: relative;
+}
+.daterange-popover {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  background: #fff;
+  border: 1px solid #0d6efd;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  z-index: 10; /* above sticky header */
+  min-width: 260px;
+}
+.daterange-popover .dr-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.daterange-popover .dr-row label {
+  font-size: 13px;
+  color: #495057;
+}
+.daterange-popover input[type="date"] {
+  border: 1px solid #0d6efd;
+  border-radius: 6px;
+  height: 32px;
+  padding: 2px 8px;
+}
+.daterange-popover .dr-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Ensure date range popover stays above the table header */
+.search-filter-container {
+  z-index: 200 !important; /* higher than sticky table header */
+  overflow: visible !important; /* allow popover to extend */
+}
+.daterange-popover {
+  z-index: 1000 !important; /* guarantee on top */
+}
+/* Keep sticky table header below the popover */
+.employee-table thead th {
+  z-index: 50 !important;
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #0d6efd;
+  border-radius: 8px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  min-width: 180px;
+  z-index: 1000;
+  margin-top: 1px;
+}
+
+.profile-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #f0f0f0;
+}
+.profile-item:last-child {
+  border-bottom: none;
+}
+.profile-item:hover {
+  background-color: #f8f9fa;
+}
+.profile-item svg {
+  color: #666;
+  flex-shrink: 0;
+}
+.profile-item:first-child {
+  border-radius: 8px 8px 0 0;
+}
+.profile-item:last-child {
+  border-radius: 0 0 8px 8px;
+}
+
+/* Responsive (copied) */
+@media (max-width: 1200px) {
+  .content-area {
+    width: auto;
+    max-width: none;
+  }
+  .search {
+    width: 250px;
+  }
+  .employee-table {
+    font-size: 0.9rem;
+  }
+  .employee-table thead tr th,
+  .employee-table tbody tr td {
+    padding: 10px 12px;
+  }
+}
+@media (max-width: 1024px) {
+  .dashboard-container {
+    padding: 0;
+  }
+  .navbar {
+    margin: 0 2px 2px 2px;
+    padding: 8px;
+  }
+  .navbar-container {
+    padding: 0.5rem 0.75rem;
+  }
+  .main-content {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  .sidebar {
+    width: 80px;
+    padding-top: 0.75rem;
+    gap: 1.2rem;
+    margin-left: 2px;
+  }
+  .sidebar-item {
+    font-size: 0.9rem;
+  }
+  .content-area {
+    margin: 2px;
+    padding: 0.75rem;
+  }
+  .search {
+    width: 200px;
+  }
+  .search-filter-container {
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .employee-table thead tr th,
+  .employee-table tbody tr td {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+  .employee-table tbody tr td,
+  .employee-table thead tr th {
+    display: table-cell !important;
+  }
+}
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 0;
+    background-color: #c2defa;
+  }
+  .navbar {
+    margin: 0;
+    padding: 8px;
+    border-radius: 0;
+  }
+  .navbar-container {
+    padding: 0.5rem 0.75rem;
+  }
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+  .navbar-icons > * {
+    margin-left: 0.5rem;
+    font-size: 1.1rem;
+  }
+  .main-content {
+    flex-direction: column;
+    gap: 0;
+    height: auto;
+  }
+  .sidebar {
+    width: 100%;
+    height: 60px !important;
+    max-height: 60px !important;
+    min-height: 60px !important;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0.75rem 0.5rem;
+    margin: 0 5px 5px 5px;
+    border-radius: 10px;
+    gap: 0.5rem;
+  }
+  .sidebar-item {
+    flex: 1;
+    max-width: 80px;
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.25rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    min-height: 45px !important;
+    max-height: 45px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .sidebar-item:hover {
+    background-color: rgba(25, 118, 210, 0.1);
+    transform: scale(1.05);
+  }
+  .content-area {
+    margin: 0 5px 5px 5px;
+    padding: 1rem;
+    min-height: calc(100vh - 180px);
+  }
+  .search-filter-container {
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .search {
+    width: 100%;
+    height: 45px;
+  }
+  .search-input {
+    height: 45px;
+    font-size: 1rem;
+    padding: 0.75rem 40px 0.75rem 1rem;
+  }
+  .group-dropdown {
+    width: 100%;
+  }
+  .group-dropdown .btn {
+    width: 100%;
+    height: 45px;
+    font-size: 0.95rem;
+    justify-content: space-between;
+  }
+  .table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  .employee-table {
+    width: 100%;
+    min-width: 1000px;
+    font-size: 0.9rem;
+    border-spacing: 0;
+    border-collapse: separate;
+    background: white;
+    margin: 0;
+  }
+  .employee-table thead {
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .employee-table thead tr th {
+    padding: 1rem 0.75rem;
+    font-weight: 600;
+    border-bottom: 2px solid #dee2e6;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .employee-table thead th:first-child {
+    position: sticky;
+    left: 0;
+    background: #f8f9fa;
+    z-index: 15;
+  }
+  .employee-table tbody tr {
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .employee-table tbody tr:last-child {
+    border-bottom: none;
+  }
+  .employee-table tbody tr td {
+    padding: 1rem 0.75rem;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  .employee-table tbody tr td:first-child {
+    position: sticky;
+    left: 0;
+    background: white;
+    z-index: 5;
+  }
+  .table-scroll {
+    overflow-x: auto;
+  }
+}
+@media (max-width: 480px) {
+  .dashboard-container {
+    font-size: 14px;
+    padding: 0;
+  }
+  .navbar {
+    margin: 0;
+    padding: 6px;
+  }
+  .navbar-container {
+    padding: 0.4rem 0.6rem;
+  }
+  .navbar-brand {
+    font-size: 1rem;
+  }
+  .navbar-icons > * {
+    margin-left: 0.3rem;
+    font-size: 1rem;
+  }
+  .img {
+    padding-left: 8px;
+  }
+  .sidebar {
+    height: 50px !important;
+    max-height: 50px !important;
+    min-height: 50px !important;
+    padding: 0.5rem 0.25rem;
+    margin: 0 3px 3px 3px;
+    gap: 0.25rem;
+  }
+  .sidebar-item {
+    flex: 1;
+    max-width: 70px;
+    font-size: 0.7rem;
+    padding: 0.3rem 0.2rem;
+    min-height: 35px !important;
+    max-height: 35px !important;
+    border-radius: 6px;
+  }
+  .content-area {
+    margin: 0 3px 3px 3px;
+    padding: 0.75rem;
+    min-height: calc(100vh - 160px);
+  }
+  .search-filter-container {
+    gap: 0.6rem;
+    margin-bottom: 0.75rem;
+  }
+  .search {
+    height: 42px;
+  }
+  .search-input {
+    height: 42px;
+    font-size: 0.95rem;
+    padding: 0.6rem 35px 0.6rem 0.75rem;
+  }
+  .search-icon {
+    right: 10px;
+    font-size: 1.1rem;
+  }
+  .group-dropdown .btn {
+    height: 42px;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  .table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    background: white;
+  }
+  .employee-table {
+    width: 100%;
+    min-width: 1000px;
+    border-spacing: 0;
+    border-collapse: separate;
+    background: white;
+    margin: 0;
+  }
+  .employee-table thead {
+    display: table-header-group;
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .employee-table tbody {
+    display: table-row-group;
+  }
+  .employee-table tbody tr {
+    display: table-row;
+    background: white;
+    margin-bottom: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .employee-table tbody tr:last-child {
+    border-bottom: none;
+  }
+  .employee-table tbody tr td {
+    display: table-cell;
+    padding: 0.75rem 0.5rem;
+    border: none;
+    text-align: left;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  .employee-table tbody tr td:before {
+    content: none;
+    display: none;
+  }
+  .employee-table tbody tr td:first-child {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1976d2;
+    padding: 0.75rem 0.5rem;
+    border-bottom: none;
+    margin-bottom: 0;
+    position: sticky;
+    left: 0;
+    background: white;
+    z-index: 5;
+  }
+  .employee-table thead th {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .employee-table thead th:first-child {
+    position: sticky;
+    left: 0;
+    background: #f8f9fa;
+    z-index: 15;
+  }
+  .profile-dropdown {
+    position: fixed !important;
+    top: auto !important;
+    bottom: 15px !important;
+    left: 15px !important;
+    right: 15px !important;
+    width: auto !important;
+    max-height: 60vh;
+    overflow-y: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+  }
+  .profile-item {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    min-height: 48px;
+  }
+}
+@media (max-width: 360px) {
+  .navbar-container {
+    padding: 0.3rem 0.4rem;
+  }
+  .navbar-brand {
+    font-size: 0.9rem;
+  }
+  .sidebar {
+    height: 40px !important;
+    max-height: 40px !important;
+    min-height: 40px !important;
+    padding: 0.4rem 0.15rem;
+    margin: 0 2px 2px 2px;
+  }
+  .sidebar-item {
+    max-width: 60px;
+    font-size: 0.65rem;
+    padding: 0.25rem 0.1rem;
+    min-height: 28px !important;
+    max-height: 28px !important;
+  }
+  .content-area {
+    padding: 0.5rem;
+    margin: 0 2px 2px 2px;
+    min-height: calc(100vh - 145px);
+  }
+  .search-input {
+    height: 40px;
+    font-size: 0.9rem;
+    padding: 0.5rem 32px 0.5rem 0.6rem;
+  }
+  .search-icon {
+    right: 8px;
+    font-size: 1rem;
+  }
+  .group-dropdown .btn {
+    height: 40px;
+    font-size: 0.85rem;
+    padding: 0.5rem 0.6rem;
+  }
+  .employee-table tbody tr {
+    padding: 0.75rem;
+    margin-bottom: 0.6rem;
+  }
+  .employee-table tbody tr td {
+    font-size: 14px;
+    padding: 12px 15px;
+  }
+  .employee-table tbody tr td:before {
+    width: 80px;
+    font-size: 0.75rem;
+  }
+  .employee-table tbody tr td:first-child {
+    font-size: 0.9rem;
+  }
+  .profile-dropdown {
+    bottom: 10px !important;
+    left: 10px !important;
+    right: 10px !important;
+  }
+  .profile-item {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+    min-height: 44px;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .sidebar-item,
+  .employee-table tbody tr,
+  .profile-item,
+  .navbar-icons > * {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .search-input {
+    min-height: 44px;
+  }
+  .group-dropdown .btn {
+    min-height: 44px;
+  }
+}
+
+/* ================= Table Normalization (applies after earlier rules) ================= */
+.table-scroll {
+  /* ensure both axes scroll gracefully */
+  overflow-x: auto !important;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #fff;
+}
+
+.employee-table {
+  /* simplified structure */
+  border-collapse: separate !important;
+  border-spacing: 0;
+  width: 100%;
+  min-width: 850px; /* still forces horizontal scroll on narrow devices */
+  table-layout: auto; /* natural widths */
+}
+
+/* Header */
+.employee-table thead th {
+  background: #f8f9fc !important;
+  font-weight: 600;
+  font-size: 0.8rem;
+  line-height: 1.1;
+  padding: 10px 8px !important;
+  border-bottom: 1px solid #d3e3f5 !important;
+  vertical-align: middle;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* Cells */
+.employee-table tbody td {
+  padding: 10px 8px !important;
+  font-size: 0.78rem;
+  line-height: 1.15;
+  vertical-align: middle;
+  background: #fff;
+  border-top: 1px solid #eef3f9;
+  border-bottom: 1px solid #eef3f9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* First data row top border alignment */
+.employee-table tbody tr:first-child td {
+  border-top: 1px solid #d3e3f5;
+}
+
+/* Zebra + hover */
+.employee-table tbody tr:nth-child(even) td {
+  background: #fafcff;
+}
+.employee-table tbody tr:hover td {
+  background: #f1f7ff;
+}
+
+/* Checkbox + icon columns centered */
+.employee-table thead th:nth-child(1),
+.employee-table tbody td:nth-child(1),
+.employee-table thead th:nth-child(7),
+.employee-table tbody td:nth-child(7),
+.employee-table thead th:nth-child(8),
+.employee-table tbody td:nth-child(8),
+.employee-table thead th:nth-child(9),
+.employee-table tbody td:nth-child(9) {
+  text-align: center !important;
+}
+
+/* Sticky header */
+.employee-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+/* Sticky first column (checkbox) */
+.employee-table thead th:first-child,
+.employee-table tbody td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 4;
+  background: #f8f9fc;
+}
+
+/* Only first column sticky; remove second sticky for simplicity */
+
+/* Adjust first column shadow */
+.employee-table tbody td:first-child {
+  box-shadow: 2px 0 0 #ffffff;
+}
+
+/* Remove duplicate border artifacts at far left */
+.employee-table thead th:first-child,
+.employee-table tbody td:first-child {
+  border-left: 0 !important;
+}
+
+/* Consistent row height (auto with min for touch) */
+.employee-table tbody td {
+  min-height: 44px;
+}
+.employee-table tbody tr {
+  height: auto;
+}
+
+/* Tighten icon cell padding */
+.employee-table tbody td:nth-child(7),
+.employee-table tbody td:nth-child(8),
+.employee-table tbody td:nth-child(9) {
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+
+/* On very narrow viewports ensure scroll bar visible */
+@media (max-width: 600px) {
+  .employee-table {
+    min-width: 900px;
+  }
+}
+
+.content-area {
+  width: 500px;
+  flex-grow: 1;
+  padding: 1rem;
+  background-color: white;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+  box-shadow: 0 1px 8px rgb(0 0 0 / 0.1);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+.search-filter-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.search {
+  width: 300px;
+  border: 2px solid black;
+  border-radius: 18px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: gray;
+  pointer-events: none;
+}
+.search-input {
+  width: 100%;
+  height: 40px;
+  padding-right: 35px;
+  border: 1px solid #ccc;
+}
+
+.group-dropdown .btn {
+  border: 1px solid #495057;
+  font-weight: 600;
+}
+.group-dropdown .btn:hover,
+.group-dropdown .btn:focus {
+  background-color: #e1eaff;
+  color: #0d6efd;
+}
+
+/* Base employee table */
+.employee-table {
+  background-color: #fff;
+  border-collapse: separate !important;
+  border-spacing: 0;
+  width: 100%;
+  min-width: 850px;
+}
+.employee-table thead tr th {
+  background-color: transparent;
+  color: #495057;
+  font-weight: 700;
+  border-bottom: none;
+  padding: 12px 15px;
+  vertical-align: middle;
+  user-select: none;
+}
+.employee-table tbody tr td {
+  padding: 12px 15px;
+  vertical-align: middle;
+  border: none;
+  color: #212529;
+  font-size: 14px;
+  text-align: center;
+}
+.employee-table tbody tr td:first-child {
+  padding-left: 20px;
+  width: 50px;
+}
+.employee-table tbody tr td:nth-child(2),
+.employee-table tbody tr td:nth-child(3),
+.employee-table tbody tr td:nth-child(4) {
+  font-weight: 600;
+}
+.employee-table tbody tr td svg {
+  vertical-align: middle;
+  margin: 0 5px;
+  color: #0d6efd;
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.employee-table tbody tr td svg:hover {
+  color: #0047b3;
+}
+.remove-user-icon {
+  color: #e00;
+  margin-left: 0;
+}
+.remove-user-icon:hover {
+  color: #a00;
+}
+.employee-table thead {
+  text-align: center;
+}
+.employee-table thead th:first-child,
+.employee-table tbody td:first-child {
+  width: 50px;
+  text-align: center;
+  vertical-align: middle;
+}
+.employee-table thead th:first-child svg,
+.employee-table tbody td:first-child svg {
+  font-size: 18px;
+  color: #6c757d;
+  cursor: pointer;
+}
+.employee-table thead th:first-child svg:hover,
+.employee-table tbody td:first-child svg:hover {
+  color: #0d6efd;
+}
+
+.form-control[type="search"] {
+  border-radius: 20px;
+  border: 1px solid #ced4da;
+  padding-left: 1rem;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+.form-control[type="search"]:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 6px #a7c7ff;
+  outline: none;
+}
+
+.btn-outline-secondary {
+  border-radius: 6px;
+  color: #495057;
+  border-color: #ced4da;
+  font-size: 16px;
+  padding: 6px 10px;
+}
+.for_access {
+  border: 2px solid #c2defa;
+  border-radius: 6px;
+  padding: 2px;
+}
+
+/* Dropdown styles (duplicated intentionally to mirror source) */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.for_access {
+  padding: 10px 15px;
+  color: black;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  min-width: 160px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+.dropdown-item {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+FaUserMinus {
+  color: red;
+}
+
+/* From EmployeeDashboard extended styling (scroll, sticky header, responsive, etc.) */
+/* Add the remainder of EmployeeDashboard.css (already quite large). */
+/* For exact match, you may copy entire EmployeeDashboard.css content here if further sections are needed. */
+
+/* Embedded AddGroups view adjustments */
+.groups-embed {
+  flex: 1;
+  padding: 0.75rem 1rem;
+}
+.groups-embed .workspace-header {
+  margin-top: 0;
+}

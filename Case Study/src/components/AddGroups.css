@@ -1,0 +1,312 @@
+/* General */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f6fb;
+}
+
+/* Navbar */
+.navbar {
+  height: 56px;
+  background: white;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px; /* space inside navbar */
+  margin: 10px 15px; /* space outside navbar so it doesn’t touch edges */
+  border-radius: 12px; /* rounded corners */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* subtle shadow for modern look */
+}
+
+.logo img {
+  height: 30px;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-icon {
+  cursor: pointer;
+  color: #004aad;
+}
+
+/* Main Layout */
+.main-content {
+  display: flex;
+  height: calc(100vh - 56px);
+}
+
+/* Sidebar */
+.sidebar {
+  width: 80px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+
+  margin: 10px 0 10px 15px; /* align with navbar margin */
+  border-radius: 12px; /* rounded corners like navbar */
+  height: calc(100vh - 76px); /* full height minus navbar height + margins */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* optional shadow */
+}
+
+.sidebar-icon {
+  margin: 20px 0;
+  color: #004aad;
+  cursor: pointer;
+}
+
+/* Workspace */
+.workspace {
+  flex: 1;
+  padding: 20px;
+}
+
+.workspace-header {
+  background: #0066ff;
+  color: white;
+  padding: 10px;
+  border-radius: 6px 6px 0 0;
+}
+
+/* Search & Delete */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #f2f6fb;
+  padding: 5px;
+  border-radius: 5px;
+  flex-direction: row-reverse;
+  border: 2px solid black;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.delete-btn {
+  background: white;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Table */
+
+.group-table {
+  width: 100%;
+  border-collapse: separate; /* allows border-radius */
+  border-spacing: 0; /* remove extra spacing */
+  margin-top: 10px;
+  background: white;
+  border-radius: 12px; /* ✅ rounded corners */
+  overflow: hidden; /* keeps corners clipped */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* subtle shadow */
+  font-size: 14px;
+}
+
+.group-table th,
+.group-table td {
+  border-bottom: 2px solid #cce0ff; /* ✅ only horizontal lines */
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.group-table th {
+  background: #f2f6fb;
+  border-bottom: 2px solid #cce0ff;
+}
+.group-table tr:last-child td {
+  border-bottom: none; /* ✅ no line after last row */
+}
+
+.trash-icon {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Group Section */
+.add-group {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.add-btn {
+  background: #0066ff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.add-form {
+  display: flex;
+  gap: 10px;
+}
+
+.add-form input,
+.add-form select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.submit-btn {
+  background: #0066ff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Add Group Modal */
+.add-group-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+}
+
+.add-group-modal {
+  background: #ffffff;
+  border-radius: 18px;
+  width: 100%;
+  max-width: 420px;
+  padding: 28px 26px 24px 26px;
+  box-shadow: 0 10px 28px -4px rgba(0, 0, 0, 0.2),
+    0 4px 12px -2px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: agmFade 0.25s ease;
+}
+
+.agm-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0d4271;
+}
+
+.agm-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.agm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.agm-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1b1f23;
+}
+.agm-field input,
+.agm-field select {
+  padding: 10px 14px;
+  border: 1.5px solid #0d6efd;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  outline: none;
+  background: #f5faff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.agm-field input:focus,
+.agm-field select:focus {
+  border-color: #004aad;
+  box-shadow: 0 0 0 3px rgba(0, 106, 255, 0.15);
+}
+
+.agm-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+.agm-actions .submit-btn {
+  min-width: 90px;
+}
+.agm-actions .cancel-btn {
+  background: #f1f4f7;
+  color: #1b1f23;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.agm-actions .cancel-btn:hover {
+  background: #e2e7ec;
+}
+
+@keyframes agmFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Embedded (Admin Dashboard) compact variant: remove interior gaps */
+.groups-embed {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.groups-embed .workspace-header {
+  margin: 0;
+  border-radius: 0;
+}
+.groups-embed .search-filter-container,
+.groups-embed .actions {
+  margin: 0;
+  padding: 10px 12px;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+}
+.groups-embed .group-table {
+  margin-top: 0;
+  border-radius: 0;
+}
+.groups-embed .add-group {
+  margin: 0 !important; /* no outer margin */
+  padding: 0;
+}
+.groups-embed .add-group .add-btn {
+  margin: 12px 12px 0 12px; /* isolated spacing just for button */
+}
